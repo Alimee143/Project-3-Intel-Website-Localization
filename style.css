@@ -236,6 +236,29 @@ footer {
   border-radius: 4px;
   font-weight: bold;
 }
+a.btn:hover{
+background: #005fa3;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0,113,197,0.18);
+  text-decoration: none;
+  border-color: #005fa3;
+}
+a.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0071c5;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0,113,197,0.10);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  border: 2px solid #0071c5;
+  font-size: 1.1rem;
+}
 
 @media (max-width: 768px) {
   .container {
