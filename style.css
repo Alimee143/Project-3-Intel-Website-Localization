@@ -251,3 +251,15 @@ footer {
     padding: 1rem 0;
   }
 }
+
+/* RTL support */
+html[dir="rtl"] body, html[dir="rtl"] .content, html[dir="rtl"] .text-section {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] .container {
+  flex-direction: row-reverse;
+}
+html[dir="rtl"] .container.reverse {
+  flex-direction: row;
+}

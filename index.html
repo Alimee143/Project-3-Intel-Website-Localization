@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel's Sustainability Journey</title>
+  
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
 </head>
 <body>
 <header class="hero">
@@ -146,7 +150,133 @@
   
   
 </section>
+<section class="container my-5 border border-primary-subtle rounded-5 shadow p-3 mb-5 bg-body-tertiary rounded">
+  <!-- Header and description (stacked vertically) -->
+  <div class="mb-4">
+    <div class="text-center">
+      <i class="bi bi-people-fill" style="font-size: 3rem; color: #0071c5;"></i>
+    </div>
+    <h2 class="text-center mb-3">Join Intel's Sustainability Journey</h2>
+    <p class="text-center mb-4">Sign up for updates on our sustainability initiatives and how you can get involved.</p>
+  <!-- Form -->
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="validationCustom02" placeholder="Lastname" required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3 col-md-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">City</label>
+        <input type="text" class="form-control" id="validationCustom03" required>
+        <div class="invalid-feedback">Please provide a valid city.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">State</label>
+        <select class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>...</option>
+        </select>
+        <div class="invalid-feedback">Please select a valid state.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">Please provide a valid zip.</div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+          <label class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">
+            You must agree before submitting.
+          </div>
+        </div>
+      </div>
+      <div class="text-center col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
+  </div>
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+  // RTL/LTR detection and dynamic Bootstrap CSS switching (including Google Translate)
+  function setDirectionByLang(lang) {
+    const rtlLangs = ['ar', 'he', 'fa', 'ur'];
+    if (rtlLangs.some(l => lang && lang.startsWith(l))) {
+      document.documentElement.setAttribute('dir', 'rtl');
+      // Remove any existing Bootstrap CSS
+      document.querySelectorAll('link[data-bootstrap]').forEach(link => link.remove());
+      // Add Bootstrap RTL CSS
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.rtl.min.css';
+      link.integrity = 'sha384-MdqCcafa5BLgxBDJ3d/4D292geNL64JyRtSGjEszRUQX9rhL1QkcnId+OT7Yw+D+';
+      link.crossOrigin = 'anonymous';
+      link.setAttribute('data-bootstrap', 'rtl');
+      document.head.appendChild(link);
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.querySelectorAll('link[data-bootstrap]').forEach(link => link.remove());
+      // Add Bootstrap LTR CSS
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css';
+      link.integrity = 'sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM';
+      link.crossOrigin = 'anonymous';
+      link.setAttribute('data-bootstrap', 'ltr');
+      document.head.appendChild(link);
+    }
+  }
+
+  // Initial direction set based on browser language
+  (function() {
+    const userLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    setDirectionByLang(userLang);
+  })();
+
+  // Google Translate dynamic detection
+  let lastLang = document.documentElement.lang;
+  setInterval(() => {
+    // Google Translate sets <html lang="xx">
+    const currentLang = document.documentElement.lang;
+    if (currentLang !== lastLang) {
+      setDirectionByLang(currentLang);
+      lastLang = currentLang;
+    }
+  }, 500);
+</script>
   <footer>
     <p>© 2025 Zabihullah Alimee</p>
   </footer>
